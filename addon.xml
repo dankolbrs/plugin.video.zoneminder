@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+    id="plugin.video.zoneminder"
+    name="Zoneminder"
+    version="0.1.1"
+    provider-name="Dan Kolb">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0" />
+        <import addon="script.module.beautifulsoup" version="3.0.8" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Zoneminder Addon</summary>
+        <description lang="en">Watch live streams from your zoneminder installation</description>
+        <disclaimer lang="en">Under development, currently very limited</disclaimer>
+        <license>GPL</license>
+        <website>http://zoneminder.com</website>
+        <source>http://github.com/dankolbrs/plugin.video.zoneminder</source>
+        <platform>all</platform>
+        <language>en</language>
+    </extension>
+</addon>

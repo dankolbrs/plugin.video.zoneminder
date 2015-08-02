@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+        <!-- General -->
+        <category label="30100">
+                <!-- Frames per second in stream -->
+                <setting id="frames_per_second"
+                        type="slider"
+                        label="30101"
+                        default="25"
+                        range="1,1,30"
+                        option="int" />
+
+                <!-- Zoneminder URL -->
+                <setting id="zone_url"
+                        type="text"
+                        label="30102" />
+        </category>
+</settings>
