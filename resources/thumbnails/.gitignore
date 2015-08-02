@@ -1,0 +1,6 @@
+# kinda a hack. This directory is needed to hold thumbnails
+# so it needs to be git'ed, but can't do that to an empty
+# dir
+
+*
+!.gitignore
