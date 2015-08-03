@@ -24,6 +24,30 @@ def clear_thumbnails():
     for item in os.listdir(thumbnails_dir):
         os.remove(thumbnails_dir + "/" + item)
 
+def clean_zone_url(url):
+    #change the url to what is expected by urllib
+
+    if len(url) < 2:
+        xbmcgui.Dialog().ok(xbmcaddon.Addon().getAddonInfo('name'),
+                            "Hostname of Zoneminder installation",
+                            "must be configured in Addon settings")
+
+    #add an http if needed
+    if url.startswith("http://"):
+        #do nothing
+        pass
+    else:
+        url = "http://" + url
+
+    #default zoneminder location
+    if url.endswith("/zm"):
+        #do nothing
+        pass
+    else:
+        url = url + "/zm"
+
+    return url
+
 def get_monitors():
     #get the available monitors
 
@@ -32,6 +56,10 @@ def get_monitors():
 
     #url of the zoneminder instance
     zone_url = str(__settings__.getSetting("zone_url"))
+
+    #check the URL provided, ensure its in the format http://hostname.tld/zm
+    zone_url = clean_zone_url(zone_url)
+
 
     #removing the /zm which is needed to call the CGI
     raw_url = zone_url.replace("/zm", "")
@@ -73,9 +101,10 @@ def get_monitors():
         list_info.setInfo(type='Video', infoLabels="info")
         xbmcplugin.addDirectoryItem(
             handle=int(sys.argv[1]),
-            url = "http://zoneminder.dankolb.net/cgi-bin-zm/nph-zms?mode=jpeg&monitor=" + str(i) + "&maxfps=" + fps,
+            url = raw_url + "/cgi-bin-zm/nph-zms?mode=jpeg&monitor=" + str(i) + "&maxfps=" + fps,
             listitem = list_info,
             isFolder= False)
+
 def get_params():
     """
     Retrieves the current existing parameters from XBMC.

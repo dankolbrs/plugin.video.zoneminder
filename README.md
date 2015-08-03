@@ -13,9 +13,11 @@ $ cd ~/.kodi/addons/
 $ git clone https://github.com/dankolbrs/plugin.video.zoneminder.git
 ```
 ### TODOs
-* Add gui popup if no hostname is entered
-* Allow only hostname to be entered, append the /zm to the hostname
-* Prepend with http: when making the call
+* --Add gui popup if no hostname is entered--
+* --Allow only hostname to be entered, append the /zm to the hostname--
+* --Prepend with http: when making the call--
+* Memory errors when reopening after error
+* Excessive amount of buffering
 * Review Kodi standards to submit to repo
 * Add feature to cycle through existing monitors
 * Add screenshots to README
