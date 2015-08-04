@@ -2,7 +2,7 @@
 <addon
     id="plugin.video.zoneminder"
     name="Zoneminder"
-    version="0.1.1"
+    version="0.1.2"
     provider-name="Dan Kolb">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
